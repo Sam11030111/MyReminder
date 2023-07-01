@@ -9,14 +9,17 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @FetchRequest(sortDescriptors: [])
+    private var myListResults: FetchedResults<MyList>
+    
     @State private var isPresented: Bool = false
     
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Hello, world!")
+                MyListView(myLists: myListResults)
                 
-                Spacer()
+                //Spacer()
                 
                 Button {
                     isPresented = true
@@ -31,6 +34,11 @@ struct HomeView: View {
                 NavigationView {
                     AddNewListView { name, color in
                         // save the list
+                        do {
+                            try ReminderService.saveMyList(name, color)
+                        } catch {
+                            print(error)
+                        }
                     }
                 }
             }
@@ -42,5 +50,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environment(\.managedObjectContext, CoreDataProvider.shared.persistentContainer.viewContext)
     }
 }

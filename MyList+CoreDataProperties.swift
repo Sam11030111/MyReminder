@@ -16,8 +16,8 @@ extension MyList {
         return NSFetchRequest<MyList>(entityName: "MyList")
     }
 
-    @NSManaged public var color: UIColor?
-    @NSManaged public var name: String?
+    @NSManaged public var color: UIColor
+    @NSManaged public var name: String
 }
 
 extension MyList : Identifiable {
