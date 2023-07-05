@@ -18,14 +18,22 @@ struct MyListView: View {
                 Text("No Reminders Find")
             } else {
                 ForEach(myLists) { myList in
-                    VStack {
-                        MyListCellView(myList: myList)
-                            .frame(width: .infinity, alignment: .leading)
-                            .padding(.leading, 10)
-                            .font(.title3)
-                        
-                        Divider()
+                    NavigationLink(value: myList) {
+                        VStack {
+                            MyListCellView(myList: myList)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.leading, 10)
+                                .font(.title3)
+                                
+                            Divider()
+                        }
+                        .foregroundColor(.black)
                     }
+                }
+                .scrollContentBackground(.hidden)
+                .navigationDestination(for: MyList.self) { myList in
+                    MyListDetailView(myList: myList)
+                        .navigationTitle(myList.name)
                 }
             }
         }

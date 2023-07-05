@@ -25,4 +25,30 @@ class ReminderService {
         mylist.color = color
         try save()
     }
+    
+    static func updateReminder(reminder: Reminder, editConfig: ReminderEditConfig) throws -> Bool {
+        let reminder = reminder
+        reminder.isCompleted = editConfig.isCompleted
+        reminder.title = editConfig.title
+        reminder.notes = editConfig.notes
+        reminder.reminderDate = editConfig.hasDate ? editConfig.reminderDate : nil
+        reminder.reminderTime = editConfig.hasTime ? editConfig.reminderTime : nil
+        
+        try save()
+        return true
+    }
+    
+    static func saveReminderToMyList(myList: MyList, reminderTitle: String) throws {
+        let reminder = Reminder(context: viewContext)
+        reminder.title = reminderTitle
+        myList.addToReminders(reminder)
+        try save()
+    }
+    
+    static func getRemindersByList(myList: MyList) -> NSFetchRequest<Reminder> {
+        let request = Reminder.fetchRequest()
+        request.sortDescriptors = []
+        request.predicate = NSPredicate(format: "list = %@ AND isCompleted = false", myList)
+        return request
+    }
 }
