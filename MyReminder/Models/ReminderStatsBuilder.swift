@@ -37,14 +37,14 @@ struct ReminderStatsBuilder {
     
     private func calculateTodayCount(reminders: [Reminder]) -> Int {
         return reminders.reduce(0) { result, reminder in
-            return ((reminder.reminderDate != nil || reminder.reminderTime != nil) && !reminder.isCompleted) ? result + 1 : result
+            let isToday = reminder.reminderDate?.isToday ?? false
+            return isToday ? result + 1 : result
         }
     }
     
     private func calculateScheduledCount(reminders: [Reminder]) -> Int {
         return reminders.reduce(0) { result, reminder in
-            let isToday = reminder.reminderDate?.isToday ?? false
-            return isToday ? result + 1 : result
+            return ((reminder.reminderDate != nil || reminder.reminderTime != nil) && !reminder.isCompleted) ? result + 1 : result
         }
     }
     

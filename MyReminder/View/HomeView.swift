@@ -108,6 +108,7 @@ struct HomeView: View {
                 }
             }
             .padding()
+            .navigationTitle("Reminders")
         }
         .searchable(text: $search)
     }

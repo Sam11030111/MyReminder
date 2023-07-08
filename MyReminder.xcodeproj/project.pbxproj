@@ -34,6 +34,7 @@
 		EF07214D2A56E07900A3E659 /* ReminderStatsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07214C2A56E07900A3E659 /* ReminderStatsBuilder.swift */; };
 		EF07214F2A57E1D200A3E659 /* ReminderStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07214E2A57E1D200A3E659 /* ReminderStatsView.swift */; };
 		EF0721522A58046D00A3E659 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0721512A58046D00A3E659 /* NotificationManager.swift */; };
+		EF0721542A59051600A3E659 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0721532A59051600A3E659 /* Color+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		EF07214C2A56E07900A3E659 /* ReminderStatsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderStatsBuilder.swift; sourceTree = "<group>"; };
 		EF07214E2A57E1D200A3E659 /* ReminderStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderStatsView.swift; sourceTree = "<group>"; };
 		EF0721512A58046D00A3E659 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		EF0721532A59051600A3E659 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				EF07213E2A529FFE00A3E659 /* Date+Extensions.swift */,
+				EF0721532A59051600A3E659 /* Color+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				EF0721072A4EBCCA00A3E659 /* HomeView.swift in Sources */,
 				EF07211A2A4EC1EB00A3E659 /* RemindersModel.xcdatamodeld in Sources */,
 				EF0721362A507DA100A3E659 /* PreviewData.swift in Sources */,
+				EF0721542A59051600A3E659 /* Color+Extensions.swift in Sources */,
 				EF07212E2A4FD3BE00A3E659 /* UIColorTransformer.swift in Sources */,
 				EF0721442A52A67F00A3E659 /* ReminderEditConfig.swift in Sources */,
 				EF0721222A4EC5BF00A3E659 /* MyList+CoreDataClass.swift in Sources */,

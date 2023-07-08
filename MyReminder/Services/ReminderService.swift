@@ -62,16 +62,16 @@ class ReminderService {
         request.sortDescriptors = []
         
         switch statType {
-        case .today:
-            let today = Date()
-            let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)
-            request.predicate = NSPredicate(format: "(reminderDate BETWEEN {%@, %@}) OR (reminderTime BETWEEN {%@, %@})", today as NSDate, tomorrow! as NSDate)
-        case .scheduled:
-            request.predicate = NSPredicate(format: "(reminderDate != nil OR reminderTime != nil) AND isCompleted = false")
-        case .all:
-            request.predicate = NSPredicate(format: "isCompleted = false")
-        case .completed:
-            request.predicate = NSPredicate(format: "isCompleted = true")
+            case .all:
+                request.predicate = NSPredicate(format: "isCompleted = false")
+            case .today:
+                let today = Date()
+                let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)
+                request.predicate = NSPredicate(format: "(reminderDate >= %@) AND (reminderDate < %@)", today as NSDate, tomorrow! as NSDate)
+            case .scheduled:
+                request.predicate = NSPredicate(format: "(reminderDate != nil OR reminderTime != nil) AND isCompleted = false")
+            case .completed:
+                request.predicate = NSPredicate(format: "isCompleted = true")
         }
         
         return request
