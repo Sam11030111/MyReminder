@@ -11,6 +11,8 @@ struct MyListView: View {
     
     let myLists: FetchedResults<MyList>
     
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         NavigationStack {
             if myLists.isEmpty {
@@ -27,7 +29,7 @@ struct MyListView: View {
                                 
                             Divider()
                         }
-                        .foregroundColor(.black)
+                        .foregroundColor(colorScheme == .dark ? Color.offWhite : Color.darkGray)
                     }
                 }
                 .scrollContentBackground(.hidden)
